@@ -11,6 +11,9 @@ public class TeacherSubject
     [ForeignKey("Subgroup")]
     public long SubgroupId { get; set; }
     public Subgroup Subgroup { get; set; }
+    [ForeignKey("Teacher")]
+    public long TeacherId { get; set; }
+    public Teacher Teacher { get; set; }
     public List<DaySchedule>? DaySchedules { get; set; }
     public List<MainSchedule>? MainSchedules { get; set; }
 }

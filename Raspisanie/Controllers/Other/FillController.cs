@@ -49,11 +49,18 @@ public class FillController : ControllerBase
     }
 
     [HttpGet]
-    public IActionResult MainFill()
+    public async Task<IActionResult> MainFill()
     {
         try
         {
-            FillGroups();
+            await FillGroups();
+            await FillSubject();
+            await FillSubgroup();
+            await FillTeacher();
+            await FillTeacherSubject();
+            
+            
+            
             return new OkResult();
         }
         catch (Exception e)
@@ -63,13 +70,131 @@ public class FillController : ControllerBase
         }
     }
 
-    private void FillGroups()
+    private async Task FillGroups()
     {
-        for (int i = 0; i < 5; i++)
+        for (int i = 0; i < 10; i++)
         {
-            _group.Add(new Group()
+            await _group.Add(new Group()
             {
                 Name = $"группа{i + 1}"
+            });
+        }
+    }
+    private async Task FillSubject()
+    {
+        IList<string> list = new List<string>();
+        list.Add("Труд");
+        list.Add("Математика");
+        list.Add("Природоведение");
+        list.Add("Физкультура");
+        list.Add("Русский язык");
+        list.Add("Биология");
+        list.Add("География");
+        list.Add("Литература");
+        list.Add("История");
+        list.Add("Черчение");
+        list.Add("Алгебра");
+        list.Add("Геометрия");
+        list.Add("Химия");
+        list.Add("Физика");
+        list.Add("Естествознание");
+        list.Add("Экология");
+        list.Add("Иностранный язык");
+        list.Add("Чтение");
+        list.Add("Чистописание");
+        list.Add("Родной язык");
+        
+        foreach (var predmet in list)
+        {
+            await _subject.Add(new Subject()
+            {
+                Name = predmet
+            });
+        }
+    }
+    private async Task FillSubgroup()
+    {
+        var groups =  await _group.GetAll();
+        foreach (var group in groups)
+        {
+            await _subgroup.Add(new Subgroup()
+            {
+                Name = $"1",
+                GroupId = group.Id
+            });
+            await _subgroup.Add(new Subgroup()
+            {
+                Name = $"2",
+                GroupId = group.Id
+            });
+        }
+    }
+
+    private async Task FillTeacher()
+    {
+        IList<string> list = new List<string>();
+        list.Add("Сергеев Осип Лукьянович");
+        list.Add("Голубев Анатолий Валерьевич");
+        list.Add("Кудряшов Митрофан Игоревич");
+        list.Add("Панов Святослав Пантелеймонович");
+        list.Add("Воронцов Любомир Тарасович");
+        list.Add("Крылов Глеб Аристархович");
+        list.Add("Калашников Ипполит Вадимович");
+        list.Add("Смирнов Агафон Якунович");
+        list.Add("Алексеев Степан Яковлевич");
+        list.Add("Маслов Любовь Кириллович");
+        foreach (var item in list)
+        {
+            var fio = item.Split(" ");
+            await _teacher.Add(new Teacher()
+            {
+                LastName = fio[0],
+                FirstName = fio[1],
+                SurName = fio[2]
+            });
+        }
+    }
+    private async Task FillTeacherSubject()
+    {
+        var teachers = await _teacher.GetAll();
+        var subjects = await _subject.GetAll();
+        var subGroup = await _subgroup.GetAll();
+        
+        int i = 0;
+        
+        foreach (var item in teachers)
+        {
+            await _teacherSubject.Add(new TeacherSubject()
+            {
+                SubjectId = subjects[i].Id,
+                SubgroupId = subGroup[i].Id,
+                TeacherId = item.Id
+            });
+            
+            i++;
+            
+            await _teacherSubject.Add(new TeacherSubject()
+            {
+                SubjectId = subjects[i].Id,
+                SubgroupId = subGroup[i].Id,
+                TeacherId = item.Id
+            });
+
+            i++;
+        }
+    }
+    
+    private async Task FillGroupSubjectTime()
+    {
+        var list =  await _subgroup.GetAll();
+        foreach (var item in list)
+        {
+            await _groupSubjectTime.Add(new GroupSubjectTime()
+            {
+                PassedTime = 0,
+                TotalTime = new Random().Next(100,200),
+                SubgroupId = item.Id,
+                SubjectId = 17
             });
         }
     }

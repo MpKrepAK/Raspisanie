@@ -27,6 +27,7 @@ public class GroupSubjectTimeRepository : IRepository<GroupSubjectTime>
         entityById.SubjectId = entity.SubjectId;
         entityById.PassedTime = entity.PassedTime;
         entityById.TotalTime = entity.TotalTime;
+        entityById.SubgroupId = entity.SubgroupId;
         await _context.SaveChangesAsync();
         return entityById;
     }

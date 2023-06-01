@@ -31,6 +31,7 @@ groupSubjectTimes
         "id": 0,
         "totalTime": 0,
         "passedTime": 0,
+        "subgroupId": 0,
         "subjectId": 0,
     }
 mainSchedules
@@ -70,6 +71,7 @@ teacherSubject
         "id": 0,
         "subjectId": 0,
         "subgroupId": 0,
+        "teacherId": 0,
     }
 
 

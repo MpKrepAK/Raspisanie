@@ -26,6 +26,7 @@ public class TeacherSubjectRepository : IRepository<TeacherSubject>
         var entityById = await _context.TeacherSubjects.FirstOrDefaultAsync(x => x.Id == id);
         entityById.SubjectId = entity.SubjectId;
         entityById.SubgroupId = entity.SubgroupId;
+        entityById.TeacherId = entity.TeacherId;
         await _context.SaveChangesAsync();
         return entityById;
     }
