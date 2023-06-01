@@ -5,7 +5,7 @@ using Raspisanie.Models.Database.Repositories.Interfaces;
 namespace Raspisanie.Controllers.Other;
 
 [ApiController]
-[Route("cabinets")]
+[Route("fill")]
 public class FillController : ControllerBase
 {
     private readonly IRepository<Cabinet> _cabinet;
@@ -46,5 +46,31 @@ public class FillController : ControllerBase
         _teacher = teacher;
         _teacherSubject = teacherSubject;
         _date = date;
+    }
+
+    [HttpGet]
+    public IActionResult MainFill()
+    {
+        try
+        {
+            FillGroups();
+            return new OkResult();
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine(e);
+            return new BadRequestResult();
+        }
+    }
+
+    private void FillGroups()
+    {
+        for (int i = 0; i < 5; i++)
+        {
+            _group.Add(new Group()
+            {
+                Name = $"группа{i + 1}"
+            });
+        }
     }
 }

@@ -17,9 +17,9 @@ daySchedules
     {
         "id": 0,
         "teacherSubjectId": 0,
-        "subgroupId": 0,
-        "CabinetId": 0,
+        "cabinetId": 0,
         "DateId": 0,
+        "Number": 0
      }
 groups
     {
@@ -38,6 +38,8 @@ mainSchedules
         "id": 0,
         "teacherSubjectId": 0,
         "dayId": 0,
+        "CabinetId": 0,
+        "Number": 0,
     }
 replacementTeachers
     {

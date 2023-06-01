@@ -26,6 +26,8 @@ public class MainScheduleRepository : IRepository<MainSchedule>
         var entityById = await _context.MainSchedules.FirstOrDefaultAsync(x => x.Id == id);
         entityById.DayId = entity.DayId;
         entityById.TeacherSubjectId = entity.TeacherSubjectId;
+        entityById.Number = entity.Number;
+        entityById.CabinetId = entity.CabinetId;
         await _context.SaveChangesAsync();
         return entityById;
     }

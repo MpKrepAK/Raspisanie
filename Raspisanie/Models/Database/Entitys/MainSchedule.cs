@@ -11,4 +11,8 @@ public class MainSchedule
     [ForeignKey("Day")]
     public long DayId { get; set; }
     public Day Day { get; set; }
+    [ForeignKey("Cabinet")] 
+    public long CabinetId { get; set; }
+    public Cabinet Cabinet { get; set; }
+    public int Number { get; set; }
 }
