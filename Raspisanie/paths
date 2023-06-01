@@ -1,0 +1,21 @@
+﻿cabinets
+date
+days
+daySchedules
+groups
+groupSubjectTimes
+mainSchedules
+replacementTeachers
+subgroups
+subjects
+teachers
+teacherSubject
+
+crud
+
+add - (Post) /имя
+update - (Patch) /имя/id
+delete - (Delete) /имя/id
+get by id - (Get) /имя/id
+get all - (Get) /имя
+
