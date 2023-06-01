@@ -5,37 +5,37 @@ using Raspisanie.Models.Database.Repositories.Interfaces;
 namespace Raspisanie.Controllers;
 
 [ApiController]
-[Route("date")]
-public class DateCRUD : ControllerBase
+[Route("daySchedules")]
+public class DayScheduleCRUD : ControllerBase
 {
-    private readonly IRepository<Date> _repository;
+    private readonly IRepository<DaySchedule> _repository;
 
-    public DateCRUD(IRepository<Date> repository)
+    public DayScheduleCRUD(IRepository<DaySchedule> repository)
     {
         _repository = repository;
     }
     [HttpGet]
-    public async Task<List<Date>> GetAll()
+    public async Task<List<DaySchedule>> GetAll()
     {
         return await _repository.GetAll();
     }
     [HttpGet("{id}")]
-    public async Task<Date> GetById(long id)
+    public async Task<DaySchedule> GetById(long id)
     {
         return await _repository.GetById(id);
     }
     [HttpPost]
-    public async Task<Date> Add(Date entity)
+    public async Task<DaySchedule> Add(DaySchedule entity)
     {
         return await _repository.Add(entity);
     }
     [HttpDelete("{id}")]
-    public async Task<Date> Delete(long id)
+    public async Task<DaySchedule> Delete(long id)
     {
         return await _repository.Delete(id);
     }
-    [HttpPatch("{id}")]
-    public async Task<Date> Update(long id, Date entity)
+    [HttpPut("{id}")]
+    public async Task<DaySchedule> Update(long id, DaySchedule entity)
     {
         return await _repository.Update(id, entity);
     }

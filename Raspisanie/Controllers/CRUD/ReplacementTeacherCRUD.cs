@@ -34,7 +34,7 @@ public class ReplacementTeacherCRUD : ControllerBase
     {
         return await _repository.Delete(id);
     }
-    [HttpPatch("{id}")]
+    [HttpPut("{id}")]
     public async Task<ReplacementTeacher> Update(long id, ReplacementTeacher entity)
     {
         return await _repository.Update(id, entity);

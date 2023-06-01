@@ -34,7 +34,7 @@ public class SubgroupCRUD : ControllerBase
     {
         return await _repository.Delete(id);
     }
-    [HttpPatch("{id}")]
+    [HttpPut("{id}")]
     public async Task<Subgroup> Update(long id, Subgroup entity)
     {
         return await _repository.Update(id, entity);

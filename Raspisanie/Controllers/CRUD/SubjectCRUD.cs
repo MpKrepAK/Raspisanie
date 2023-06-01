@@ -5,37 +5,37 @@ using Raspisanie.Models.Database.Repositories.Interfaces;
 namespace Raspisanie.Controllers;
 
 [ApiController]
-[Route("cabinets")]
-public class CabinetCRUD
+[Route("subjects")]
+public class SubjectCRUD : ControllerBase
 {
-    private readonly IRepository<Cabinet> _repository;
+    private readonly IRepository<Subject> _repository;
 
-    public CabinetCRUD(IRepository<Cabinet> repository)
+    public SubjectCRUD(IRepository<Subject> repository)
     {
         _repository = repository;
     }
     [HttpGet]
-    public async Task<List<Cabinet>> GetAll()
+    public async Task<List<Subject>> GetAll()
     {
         return await _repository.GetAll();
     }
     [HttpGet("{id}")]
-    public async Task<Cabinet> GetById(long id)
+    public async Task<Subject> GetById(long id)
     {
         return await _repository.GetById(id);
     }
     [HttpPost]
-    public async Task<Cabinet> Add(Cabinet entity)
+    public async Task<Subject> Add(Subject entity)
     {
         return await _repository.Add(entity);
     }
     [HttpDelete("{id}")]
-    public async Task<Cabinet> Delete(long id)
+    public async Task<Subject> Delete(long id)
     {
         return await _repository.Delete(id);
     }
-    [HttpPatch("{id}")]
-    public async Task<Cabinet> Update(long id, Cabinet entity)
+    [HttpPut("{id}")]
+    public async Task<Subject> Update(long id, Subject entity)
     {
         return await _repository.Update(id, entity);
     }

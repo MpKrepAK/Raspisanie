@@ -5,37 +5,37 @@ using Raspisanie.Models.Database.Repositories.Interfaces;
 namespace Raspisanie.Controllers;
 
 [ApiController]
-[Route("groups")]
-public class GroupCRUD : ControllerBase
+[Route("teachers")]
+public class TeacherCRUD : ControllerBase
 {
-    private readonly IRepository<Group> _repository;
+    private readonly IRepository<Teacher> _repository;
 
-    public GroupCRUD(IRepository<Group> repository)
+    public TeacherCRUD(IRepository<Teacher> repository)
     {
         _repository = repository;
     }
     [HttpGet]
-    public async Task<List<Group>> GetAll()
+    public async Task<List<Teacher>> GetAll()
     {
         return await _repository.GetAll();
     }
     [HttpGet("{id}")]
-    public async Task<Group> GetById(long id)
+    public async Task<Teacher> GetById(long id)
     {
         return await _repository.GetById(id);
     }
     [HttpPost]
-    public async Task<Group> Add(Group entity)
+    public async Task<Teacher> Add(Teacher entity)
     {
         return await _repository.Add(entity);
     }
     [HttpDelete("{id}")]
-    public async Task<Group> Delete(long id)
+    public async Task<Teacher> Delete(long id)
     {
         return await _repository.Delete(id);
     }
-    [HttpPatch("{id}")]
-    public async Task<Group> Update(long id, Group entity)
+    [HttpPut("{id}")]
+    public async Task<Teacher> Update(long id, Teacher entity)
     {
         return await _repository.Update(id, entity);
     }

@@ -1,15 +1,76 @@
 ﻿cabinets
+    {
+        "id": 0,
+        "number": 0
+    }
 date
+    {
+         "id": 0,
+         "dateValue": "2023-06-01T15:56:38.226Z"
+     }
 days
+    {
+         "id": 0,
+         "name": "string"
+     }
 daySchedules
+    {
+        "id": 0,
+        "teacherSubjectId": 0,
+        "subgroupId": 0,
+        "CabinetId": 0,
+        "DateId": 0,
+     }
 groups
+    {
+        "id": 0,
+        "name": "fghfg"
+    }
 groupSubjectTimes
+    {
+        "id": 0,
+        "totalTime": 0,
+        "passedTime": 0,
+        "subjectId": 0,
+    }
 mainSchedules
+    {
+        "id": 0,
+        "teacherSubjectId": 0,
+        "dayId": 0,
+    }
 replacementTeachers
+    {
+        "id": 0,
+        "teacherId": 0,
+        "dayScheduleId": 0,
+    }
 subgroups
+    {
+        "id": 0,
+        "groupId": 0,
+        "name" : "dfgdfgdfg"
+    }
 subjects
+    {
+        "id": 0,
+        "name" : "dfgdfgdfg"
+    }
 teachers
+    {
+        "id": 0,
+        "firstName": "string",
+        "lastName": "string",
+        "surName": "string",
+    }
 teacherSubject
+    {
+        "id": 0,
+        "subjectId": 0,
+        "subgroupId": 0,
+    }
+
+
 
 crud
 
