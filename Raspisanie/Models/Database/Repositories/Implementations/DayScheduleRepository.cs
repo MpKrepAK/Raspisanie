@@ -27,7 +27,6 @@ public class DayScheduleRepository : IRepository<DaySchedule>
         entityById.CabinetId = entity.CabinetId;
         entityById.DateId = entity.DateId;
         entityById.TeacherSubjectId = entity.TeacherSubjectId;
-        entityById.Number = entity.Number;
         await _context.SaveChangesAsync();
         return entityById;
     }

@@ -18,8 +18,7 @@ daySchedules
         "id": 0,
         "teacherSubjectId": 0,
         "cabinetId": 0,
-        "DateId": 0,
-        "Number": 0
+        "DateId": 0
      }
 groups
     {
@@ -87,3 +86,5 @@ get all - (Get) /имя
 
 
 /fill - заполнение таблиц (применять на пустых таблицах иначе сломается наверное)
+
+переделать связь и контроллеры в связи 1 к 1

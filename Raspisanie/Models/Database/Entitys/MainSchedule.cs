@@ -14,5 +14,4 @@ public class MainSchedule
     [ForeignKey("Cabinet")] 
     public long CabinetId { get; set; }
     public Cabinet Cabinet { get; set; }
-    public int Number { get; set; }
 }

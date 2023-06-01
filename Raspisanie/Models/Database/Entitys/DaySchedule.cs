@@ -14,6 +14,7 @@ public class DaySchedule
     [ForeignKey("Date")]
     public long DateId { get; set; }
     public Date Date { get; set; }
-    public int Number { get; set; }
-    
+    [ForeignKey("ReplacementTeacher")]
+    public long ReplacementTeacherId { get; set; }
+    public ReplacementTeacher ReplacementTeacher { get; set; }
 }

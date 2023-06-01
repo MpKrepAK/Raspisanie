@@ -6,6 +6,6 @@ public class Date
 {
     public long Id { get; set; }
     [Column(name:"date")]
-    public DateTime DateValue { get; set; }
+    public DateOnly DateValue { get; set; }
     public List<DaySchedule>? DaySchedules { get; set; }
 }

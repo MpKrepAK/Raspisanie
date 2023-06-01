@@ -61,8 +61,11 @@ public class FillController : ControllerBase
             await FillGroupSubjectTime();
             await FillDay();
             await FillDate();
+            await Task.Delay(2000);
             await FillCabinets();
-            
+            await FillMainSchedule();
+            await FillDaySchedule();
+            await FillReplacementTeacher();
             return new OkResult();
         }
         catch (Exception e)
@@ -240,27 +243,27 @@ public class FillController : ControllerBase
     {
         await _date.Add(new Date()
         {
-            DateValue = new DateTime(2023,05,29)
+            DateValue = new DateOnly(2023,05,29)
         });
         await _date.Add(new Date()
         {
-            DateValue = new DateTime(2023,05,30)
+            DateValue = new DateOnly(2023,05,30)
         });
         await _date.Add(new Date()
         {
-            DateValue = new DateTime(2023,05,31)
+            DateValue = new DateOnly(2023,05,31)
         });
         await _date.Add(new Date()
         {
-            DateValue = new DateTime(2023,06,01)
+            DateValue = new DateOnly(2023,06,01)
         });
         await _date.Add(new Date()
         {
-            DateValue = new DateTime(2023,06,02)
+            DateValue = new DateOnly(2023,06,02)
         });
         await _date.Add(new Date()
         {
-            DateValue = new DateTime(2023,06,03)
+            DateValue = new DateOnly(2023,06,03)
         });
     }
     
@@ -274,20 +277,82 @@ public class FillController : ControllerBase
             });
         }
     }
+
+    private async Task FillMainSchedule()
+    {
+        var teacherSubjects = await _teacherSubject.GetAll();
+        var cabinets = await _cabinet.GetAll();
+        var days = await _day.GetAll();
     
+        _mainSchedule.Add(new MainSchedule()
+        {
+            TeacherSubjectId = teacherSubjects[0].Id,
+            CabinetId = cabinets[0].Id,
+            DayId = days[0].Id
+        });
+        _mainSchedule.Add(new MainSchedule()
+        {
+            TeacherSubjectId = teacherSubjects[0].Id,
+            CabinetId = cabinets[0].Id,
+            DayId = days[0].Id
+        });
+        _mainSchedule.Add(new MainSchedule()
+        {
+            TeacherSubjectId = teacherSubjects[1].Id,
+            CabinetId = cabinets[1].Id,
+            DayId = days[0].Id
+        });
+        _mainSchedule.Add(new MainSchedule()
+        {
+            TeacherSubjectId = teacherSubjects[2].Id,
+            CabinetId = cabinets[2].Id,
+            DayId = days[0].Id
+        });
+        _mainSchedule.Add(new MainSchedule()
+        {
+            TeacherSubjectId = teacherSubjects[3].Id,
+            CabinetId = cabinets[3].Id,
+            DayId = days[0].Id
+        });
+    }
     
+    private async Task FillDaySchedule()
+    {
+        var teacherSubjects = await _teacherSubject.GetAll();
+        var cabinets = await _cabinet.GetAll();
+        var dates = await _date.GetAll();
     
-    // private async Task FillMainSchedule()
-    // {
-    //     var teacherSubjects = _teacherSubject.GetAll();
-    //     var cabinets = _cabinet.GetAll();
-    //     var days = _day.GetAll();
-    //
-    //     _mainSchedule.Add(new MainSchedule()
-    //     {
-    //         TeacherSubjectId = 
-    //     });
-    //
-    //
-    // }
+        _mainSchedule.Add(new MainSchedule()
+        {
+            TeacherSubjectId = teacherSubjects[0].Id,
+            CabinetId = cabinets[0].Id,
+            DayId = dates[0].Id
+        });
+        _daySchedule.Add(new DaySchedule()
+        {
+            TeacherSubjectId = teacherSubjects[2].Id,
+            CabinetId = cabinets[2].Id,
+            DateId = dates[0].Id
+        });
+    }
+    
+    private async Task FillReplacementTeacher()
+    {
+        var teacherSubjects = await _teacherSubject.GetAll();
+        var cabinets = await _cabinet.GetAll();
+        var dates = await _date.GetAll();
+    
+        _mainSchedule.Add(new MainSchedule()
+        {
+            TeacherSubjectId = teacherSubjects[0].Id,
+            CabinetId = cabinets[0].Id,
+            DayId = dates[0].Id
+        });
+        _daySchedule.Add(new DaySchedule()
+        {
+            TeacherSubjectId = teacherSubjects[2].Id,
+            CabinetId = cabinets[2].Id,
+            DateId = dates[0].Id
+        });
+    }
 }

@@ -22,4 +22,11 @@ public class RaspisanieContext : DbContext
         //Database.EnsureDeleted();
         Database.EnsureCreated();
     }
+    protected override void OnModelCreating(ModelBuilder modelBuilder)
+    {
+        modelBuilder.Entity<ReplacementTeacher>()
+            .HasOne(u => u.DaySchedule)
+            .WithOne(p => p.ReplacementTeacher)
+            .HasForeignKey<ReplacementTeacher>(p => p.DayScheduleId);
+    }
 }
