@@ -58,8 +58,10 @@ public class FillController : ControllerBase
             await FillSubgroup();
             await FillTeacher();
             await FillTeacherSubject();
-            
-            
+            await FillGroupSubjectTime();
+            await FillDay();
+            await FillDate();
+            await FillCabinets();
             
             return new OkResult();
         }
@@ -80,6 +82,7 @@ public class FillController : ControllerBase
             });
         }
     }
+    
     private async Task FillSubject()
     {
         IList<string> list = new List<string>();
@@ -112,6 +115,7 @@ public class FillController : ControllerBase
             });
         }
     }
+    
     private async Task FillSubgroup()
     {
         var groups =  await _group.GetAll();
@@ -154,6 +158,7 @@ public class FillController : ControllerBase
             });
         }
     }
+    
     private async Task FillTeacherSubject()
     {
         var teachers = await _teacher.GetAll();
@@ -198,4 +203,91 @@ public class FillController : ControllerBase
             });
         }
     }
+    
+    private async Task FillDay()
+    {
+        await _day.Add(new Day()
+        {
+            Name = "Понедельник"
+        });
+        await _day.Add(new Day()
+        {
+            Name = "Вторник"
+        });
+        await _day.Add(new Day()
+        {
+            Name = "Среда"
+        });
+        await _day.Add(new Day()
+        {
+            Name = "Четверг"
+        });
+        await _day.Add(new Day()
+        {
+            Name = "Пятница"
+        });
+        await _day.Add(new Day()
+        {
+            Name = "Суббота"
+        });
+        await _day.Add(new Day()
+        {
+            Name = "Воскресенье"
+        });
+    }
+    
+    private async Task FillDate()
+    {
+        await _date.Add(new Date()
+        {
+            DateValue = new DateTime(2023,05,29)
+        });
+        await _date.Add(new Date()
+        {
+            DateValue = new DateTime(2023,05,30)
+        });
+        await _date.Add(new Date()
+        {
+            DateValue = new DateTime(2023,05,31)
+        });
+        await _date.Add(new Date()
+        {
+            DateValue = new DateTime(2023,06,01)
+        });
+        await _date.Add(new Date()
+        {
+            DateValue = new DateTime(2023,06,02)
+        });
+        await _date.Add(new Date()
+        {
+            DateValue = new DateTime(2023,06,03)
+        });
+    }
+    
+    private async Task FillCabinets()
+    {
+        for (int i = 0; i < 30; i++)
+        {
+            _cabinet.Add(new Cabinet()
+            {
+                Number = i + 1
+            });
+        }
+    }
+    
+    
+    
+    // private async Task FillMainSchedule()
+    // {
+    //     var teacherSubjects = _teacherSubject.GetAll();
+    //     var cabinets = _cabinet.GetAll();
+    //     var days = _day.GetAll();
+    //
+    //     _mainSchedule.Add(new MainSchedule()
+    //     {
+    //         TeacherSubjectId = 
+    //     });
+    //
+    //
+    // }
 }
