@@ -6,8 +6,8 @@ public class Subgroup
 {
     public long Id { get; set; }
     [ForeignKey("Group")] 
-    public long GroupId { get; set; }
-    public Group Group { get; set; }
+    public long? GroupId { get; set; }
+    public Group? Group { get; set; }
     public string Name { get; set; }
     public List<Day>? Days { get; set; }
     public List<Date>? Dates { get; set; }

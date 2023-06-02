@@ -13,12 +13,23 @@ public class MainScheduleRepository : IRepository<MainSchedule>
     }
     public async Task<List<MainSchedule>> GetAll()
     {
-        return await _context.MainSchedules.ToListAsync();
+        return await _context.MainSchedules
+            .Include(x=>x.Day)
+            .Include(x=>x.Cabinet)
+            .Include(x=>x.TeacherSubject)
+            .ThenInclude(x=>x.Subgroup)
+            .ThenInclude(x=>x.Group)
+            .ToListAsync();
+        //return await _context.MainSchedules.ToListAsync();
     }
 
     public async Task<MainSchedule> GetById(long id)
     {
-        return await _context.MainSchedules.FirstOrDefaultAsync(x=>x.Id==id);
+        return await _context.MainSchedules
+            .Include(x=>x.Day)
+            .Include(x=>x.Cabinet)
+            .Include(x=>x.TeacherSubject)
+            .FirstOrDefaultAsync(x=>x.Id==id);
     }
 
     public async Task<MainSchedule> Update(long id, MainSchedule entity)

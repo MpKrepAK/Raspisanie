@@ -13,12 +13,18 @@ public class GroupRepository : IRepository<Group>
     }
     public async Task<List<Group>> GetAll()
     {
-        return await _context.Groups.ToListAsync();
+        return await _context.Groups
+            .Include(x=>x.Subgroups)
+            .ToListAsync();
+        //return await _context.Groups.ToListAsync();
     }
 
     public async Task<Group> GetById(long id)
     {
-        return await _context.Groups.FirstOrDefaultAsync(x=>x.Id==id);
+        return await _context.Groups
+            .Include(x=>x.Subgroups)
+            .FirstOrDefaultAsync(x=>x.Id==id);
+        //return await _context.Groups.FirstOrDefaultAsync(x=>x.Id==id);
     }
 
     public async Task<Group> Update(long id, Group entity)

@@ -139,3 +139,10 @@ D:\Programming\Projects\RaspisanieGit\Raspisanie\obj\Debug\net7.0\refint\Raspisa
 D:\Programming\Projects\RaspisanieGit\Raspisanie\obj\Debug\net7.0\Raspisanie.pdb
 D:\Programming\Projects\RaspisanieGit\Raspisanie\obj\Debug\net7.0\Raspisanie.genruntimeconfig.cache
 D:\Programming\Projects\RaspisanieGit\Raspisanie\obj\Debug\net7.0\ref\Raspisanie.dll
+D:\Programming\Projects\RaspisanieGit\Raspisanie\bin\Debug\net7.0\System.Text.Encodings.Web.dll
+D:\Programming\Projects\RaspisanieGit\Raspisanie\bin\Debug\net7.0\System.Text.Json.dll
+D:\Programming\Projects\RaspisanieGit\Raspisanie\bin\Debug\net7.0\runtimes\browser\lib\net7.0\System.Text.Encodings.Web.dll
+D:\Programming\Projects\RaspisanieGit\Raspisanie\bin\Debug\net7.0\Microsoft.AspNetCore.JsonPatch.dll
+D:\Programming\Projects\RaspisanieGit\Raspisanie\bin\Debug\net7.0\Microsoft.AspNetCore.Mvc.NewtonsoftJson.dll
+D:\Programming\Projects\RaspisanieGit\Raspisanie\bin\Debug\net7.0\Newtonsoft.Json.dll
+D:\Programming\Projects\RaspisanieGit\Raspisanie\bin\Debug\net7.0\Newtonsoft.Json.Bson.dll

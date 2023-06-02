@@ -6,7 +6,7 @@
 date
     {
          "id": 0,
-         "dateValue": "2023-06-01T15:56:38.226Z"
+         "dateValue": "2023-06-01"
      }
 days
     {
@@ -19,6 +19,7 @@ daySchedules
         "teacherSubjectId": 0,
         "cabinetId": 0,
         "DateId": 0
+        "ReplacementTeacherId": 0
      }
 groups
     {
@@ -38,8 +39,7 @@ mainSchedules
         "id": 0,
         "teacherSubjectId": 0,
         "dayId": 0,
-        "CabinetId": 0,
-        "Number": 0,
+        "CabinetId": 0
     }
 replacementTeachers
     {

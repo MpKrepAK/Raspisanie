@@ -13,12 +13,20 @@ public class ReplacementTeacherRepository : IRepository<ReplacementTeacher>
     }
     public async Task<List<ReplacementTeacher>> GetAll()
     {
-        return await _context.ReplacementTeachers.ToListAsync();
+        return await _context.ReplacementTeachers
+            .Include(x=>x.DaySchedule)
+            .Include(x=>x.Teacher)
+            .ToListAsync();
+        //return await _context.ReplacementTeachers.ToListAsync();
     }
 
     public async Task<ReplacementTeacher> GetById(long id)
     {
-        return await _context.ReplacementTeachers.FirstOrDefaultAsync(x=>x.Id==id);
+        return await _context.ReplacementTeachers
+            .Include(x=>x.DaySchedule)
+            .Include(x=>x.Teacher)
+            .FirstOrDefaultAsync(x=>x.Id==id);
+        //return await _context.ReplacementTeachers.FirstOrDefaultAsync(x=>x.Id==id);
     }
 
     public async Task<ReplacementTeacher> Update(long id, ReplacementTeacher entity)

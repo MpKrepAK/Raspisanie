@@ -13,12 +13,24 @@ public class DayScheduleRepository : IRepository<DaySchedule>
     }
     public async Task<List<DaySchedule>> GetAll()
     {
-        return await _context.DaySchedules.ToListAsync();
+        return await _context.DaySchedules
+            .Include(x=>x.Cabinet)
+            .Include(x=>x.Date)
+            .Include(x=>x.TeacherSubject)
+            .Include(x=>x.ReplacementTeacher)
+            .ToListAsync();
+        //return await _context.DaySchedules.ToListAsync();
     }
 
     public async Task<DaySchedule> GetById(long id)
     {
-        return await _context.DaySchedules.FirstOrDefaultAsync(x=>x.Id==id);
+        return await _context.DaySchedules
+            .Include(x=>x.Cabinet)
+            .Include(x=>x.Date)
+            .Include(x=>x.TeacherSubject)
+            .Include(x=>x.ReplacementTeacher)
+            .FirstOrDefaultAsync(x=>x.Id==id);
+        //return await _context.DaySchedules.FirstOrDefaultAsync(x=>x.Id==id);
     }
 
     public async Task<DaySchedule> Update(long id, DaySchedule entity)

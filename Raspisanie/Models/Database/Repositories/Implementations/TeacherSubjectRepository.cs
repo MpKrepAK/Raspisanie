@@ -13,12 +13,24 @@ public class TeacherSubjectRepository : IRepository<TeacherSubject>
     }
     public async Task<List<TeacherSubject>> GetAll()
     {
-        return await _context.TeacherSubjects.ToListAsync();
+        return await _context.TeacherSubjects
+            .Include(x=>x.Subgroup)
+            .Include(x=>x.Subject)
+            .Include(x=>x.Teacher)
+            .Include(x=>x.DaySchedules)
+            .Include(x=>x.MainSchedules)
+            .ToListAsync();
     }
 
     public async Task<TeacherSubject> GetById(long id)
     {
-        return await _context.TeacherSubjects.FirstOrDefaultAsync(x=>x.Id==id);
+        return await _context.TeacherSubjects
+            .Include(x=>x.Subgroup)
+            .Include(x=>x.Subject)
+            .Include(x=>x.Teacher)
+            .Include(x=>x.DaySchedules)
+            .Include(x=>x.MainSchedules)
+            .FirstOrDefaultAsync(x=>x.Id==id);
     }
 
     public async Task<TeacherSubject> Update(long id, TeacherSubject entity)

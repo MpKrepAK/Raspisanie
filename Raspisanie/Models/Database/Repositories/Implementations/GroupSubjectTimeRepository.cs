@@ -13,12 +13,18 @@ public class GroupSubjectTimeRepository : IRepository<GroupSubjectTime>
     }
     public async Task<List<GroupSubjectTime>> GetAll()
     {
-        return await _context.GroupSubjectTimes.ToListAsync();
+        return await _context.GroupSubjectTimes
+            .Include(x=>x.Subgroup)
+            .Include(x=>x.Subject)
+            .ToListAsync();
     }
 
     public async Task<GroupSubjectTime> GetById(long id)
     {
-        return await _context.GroupSubjectTimes.FirstOrDefaultAsync(x=>x.Id==id);
+        return await _context.GroupSubjectTimes
+            .Include(x=>x.Subgroup)
+            .Include(x=>x.Subject)
+            .FirstOrDefaultAsync(x=>x.Id==id);
     }
 
     public async Task<GroupSubjectTime> Update(long id, GroupSubjectTime entity)

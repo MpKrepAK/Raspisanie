@@ -13,12 +13,18 @@ public class SubjectRepository : IRepository<Subject>
     }
     public async Task<List<Subject>> GetAll()
     {
-        return await _context.Subjects.ToListAsync();
+        return await _context.Subjects
+            .Include(x=>x.TeacherSubjects)
+            .Include(x=>x.GroupSubjectTimes)
+            .ToListAsync();
     }
 
     public async Task<Subject> GetById(long id)
     {
-        return await _context.Subjects.FirstOrDefaultAsync(x=>x.Id==id);
+        return await _context.Subjects
+            .Include(x=>x.TeacherSubjects)
+            .Include(x=>x.GroupSubjectTimes)
+            .FirstOrDefaultAsync(x=>x.Id==id);
     }
 
     public async Task<Subject> Update(long id, Subject entity)

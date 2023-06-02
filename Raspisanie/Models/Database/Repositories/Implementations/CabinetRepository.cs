@@ -13,12 +13,17 @@ public class CabinetRepository : IRepository<Cabinet>
     }
     public async Task<List<Cabinet>> GetAll()
     {
-        return await _context.Cabinets.ToListAsync();
+        return await _context.Cabinets.Include(x=>x.DaySchedules).Include(x=>x.MainSchedules).ToListAsync();
+        //return await _context.Cabinets.ToListAsync();
     }
 
     public async Task<Cabinet> GetById(long id)
     {
-        return await _context.Cabinets.FirstOrDefaultAsync(x=>x.Id==id);
+        return await _context.Cabinets
+            .Include(x=>x.DaySchedules)
+            .Include(x=>x.MainSchedules)
+            .FirstOrDefaultAsync(x=>x.Id==id);
+        //return await _context.Cabinets.FirstOrDefaultAsync(x=>x.Id==id);
     }
 
     public async Task<Cabinet> Update(long id, Cabinet entity)

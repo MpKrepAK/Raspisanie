@@ -36,9 +36,12 @@ public class Startup
         services.AddTransient<IRepository<Teacher>, TeacherRepository>();
         services.AddTransient<IRepository<TeacherSubject>, TeacherSubjectRepository>();
         
+        services.AddControllers()
+            .AddNewtonsoftJson(options =>
+                options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore
+            );
         
-        
-        services.AddControllers();
+        //services.AddControllers();
     }
     public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
     {

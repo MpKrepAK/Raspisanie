@@ -13,12 +13,18 @@ public class DayRepository : IRepository<Day>
     }
     public async Task<List<Day>> GetAll()
     {
-        return await _context.Days.ToListAsync();
+        return await _context.Days
+            .Include(x=>x.MainSchedules)
+            .ToListAsync();
+        //return await _context.Days.ToListAsync();
     }
 
     public async Task<Day> GetById(long id)
     {
-        return await _context.Days.FirstOrDefaultAsync(x=>x.Id==id);
+        return await _context.Days
+            .Include(x=>x.MainSchedules)
+            .FirstOrDefaultAsync(x=>x.Id==id);
+        //return await _context.Days.FirstOrDefaultAsync(x=>x.Id==id);
     }
 
     public async Task<Day> Update(long id, Day entity)

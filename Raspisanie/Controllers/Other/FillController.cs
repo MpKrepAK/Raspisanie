@@ -62,7 +62,6 @@ public class FillController : ControllerBase
             await FillGroupSubjectTime();
             await FillDay();
             await FillDate();
-            await Task.Delay(2000);
             await FillCabinets();
             await FillMainSchedule();
             await FillDaySchedule();
@@ -345,18 +344,11 @@ public class FillController : ControllerBase
         var teacherSubjects = await _teacherSubject.GetAll();
         var cabinets = await _cabinet.GetAll();
         var dates = await _date.GetAll();
-    
-        await _mainSchedule.Add(new MainSchedule()
+        
+        await _replacementTeacher.Add(new ReplacementTeacher()
         {
-            TeacherSubjectId = teacherSubjects[0].Id,
-            CabinetId = cabinets[0].Id,
-            DayId = dates[0].Id
-        });
-        await _daySchedule.Add(new DaySchedule()
-        {
-            TeacherSubjectId = teacherSubjects[2].Id,
-            CabinetId = cabinets[2].Id,
-            DateId = dates[0].Id
+            TeacherId = 1,
+            DayScheduleId = 1
         });
     }
 }

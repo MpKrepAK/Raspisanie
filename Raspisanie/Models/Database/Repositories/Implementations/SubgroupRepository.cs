@@ -13,12 +13,25 @@ public class SubgroupRepository : IRepository<Subgroup>
     }
     public async Task<List<Subgroup>> GetAll()
     {
-        return await _context.Subgroups.ToListAsync();
+        return await _context.Subgroups
+            .Include(x=>x.Dates)
+            .Include(x=>x.Group)
+            .Include(x=>x.Days)
+            .Include(x=>x.TeacherSubjects)
+            .Include(x=>x.GroupSubjectTimes)
+            .ToListAsync();
     }
 
     public async Task<Subgroup> GetById(long id)
     {
-        return await _context.Subgroups.FirstOrDefaultAsync(x=>x.Id==id);
+        return await _context.Subgroups
+            .Include(x=>x.Dates)
+            .Include(x=>x.Group)
+            .Include(x=>x.Days)
+            .Include(x=>x.TeacherSubjects)
+            .Include(x=>x.GroupSubjectTimes)
+            .FirstOrDefaultAsync(x=>x.Id==id);
+        //return await _context.Subgroups.FirstOrDefaultAsync(x=>x.Id==id);
     }
 
     public async Task<Subgroup> Update(long id, Subgroup entity)

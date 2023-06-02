@@ -1,10 +1,13 @@
 {
   "version": 2,
-  "dgSpecHash": "eDd0wZFyhXlsgSp72m9aqrLFi1wRq9R3B106Y3mZAm2P1Zra1MBBFO/tOktEX52s3jTi/3Lv8OO5Lx+EXX1/sQ==",
+  "dgSpecHash": "812eXPK/U4kZP0+RN2BJ/LYWVqF6deiTrmfXIlpVwwmYa5V1citsc3+VRHmE6h+AS8y/HSEhEe1ij06WtGVyjg==",
   "success": true,
   "projectFilePath": "D:\\Programming\\Projects\\RaspisanieGit\\Raspisanie\\Raspisanie.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\111vv\\.nuget\\packages\\microsoft.aspnetcore.jsonpatch\\7.0.5\\microsoft.aspnetcore.jsonpatch.7.0.5.nupkg.sha512",
+    "C:\\Users\\111vv\\.nuget\\packages\\microsoft.aspnetcore.mvc.newtonsoftjson\\7.0.5\\microsoft.aspnetcore.mvc.newtonsoftjson.7.0.5.nupkg.sha512",
     "C:\\Users\\111vv\\.nuget\\packages\\microsoft.aspnetcore.openapi\\7.0.5\\microsoft.aspnetcore.openapi.7.0.5.nupkg.sha512",
+    "C:\\Users\\111vv\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512",
     "C:\\Users\\111vv\\.nuget\\packages\\microsoft.entityframeworkcore\\8.0.0-preview.4.23259.3\\microsoft.entityframeworkcore.8.0.0-preview.4.23259.3.nupkg.sha512",
     "C:\\Users\\111vv\\.nuget\\packages\\microsoft.entityframeworkcore.abstractions\\8.0.0-preview.4.23259.3\\microsoft.entityframeworkcore.abstractions.8.0.0-preview.4.23259.3.nupkg.sha512",
     "C:\\Users\\111vv\\.nuget\\packages\\microsoft.entityframeworkcore.analyzers\\8.0.0-preview.4.23259.3\\microsoft.entityframeworkcore.analyzers.8.0.0-preview.4.23259.3.nupkg.sha512",
@@ -20,12 +23,16 @@
     "C:\\Users\\111vv\\.nuget\\packages\\microsoft.extensions.options\\8.0.0-preview.4.23259.5\\microsoft.extensions.options.8.0.0-preview.4.23259.5.nupkg.sha512",
     "C:\\Users\\111vv\\.nuget\\packages\\microsoft.extensions.primitives\\8.0.0-preview.4.23259.5\\microsoft.extensions.primitives.8.0.0-preview.4.23259.5.nupkg.sha512",
     "C:\\Users\\111vv\\.nuget\\packages\\microsoft.openapi\\1.4.3\\microsoft.openapi.1.4.3.nupkg.sha512",
+    "C:\\Users\\111vv\\.nuget\\packages\\newtonsoft.json\\13.0.1\\newtonsoft.json.13.0.1.nupkg.sha512",
+    "C:\\Users\\111vv\\.nuget\\packages\\newtonsoft.json.bson\\1.0.2\\newtonsoft.json.bson.1.0.2.nupkg.sha512",
     "C:\\Users\\111vv\\.nuget\\packages\\npgsql\\8.0.0-preview.4\\npgsql.8.0.0-preview.4.nupkg.sha512",
     "C:\\Users\\111vv\\.nuget\\packages\\npgsql.entityframeworkcore.postgresql\\8.0.0-preview.4\\npgsql.entityframeworkcore.postgresql.8.0.0-preview.4.nupkg.sha512",
     "C:\\Users\\111vv\\.nuget\\packages\\swashbuckle.aspnetcore\\6.4.0\\swashbuckle.aspnetcore.6.4.0.nupkg.sha512",
     "C:\\Users\\111vv\\.nuget\\packages\\swashbuckle.aspnetcore.swagger\\6.4.0\\swashbuckle.aspnetcore.swagger.6.4.0.nupkg.sha512",
     "C:\\Users\\111vv\\.nuget\\packages\\swashbuckle.aspnetcore.swaggergen\\6.4.0\\swashbuckle.aspnetcore.swaggergen.6.4.0.nupkg.sha512",
-    "C:\\Users\\111vv\\.nuget\\packages\\swashbuckle.aspnetcore.swaggerui\\6.4.0\\swashbuckle.aspnetcore.swaggerui.6.4.0.nupkg.sha512"
+    "C:\\Users\\111vv\\.nuget\\packages\\swashbuckle.aspnetcore.swaggerui\\6.4.0\\swashbuckle.aspnetcore.swaggerui.6.4.0.nupkg.sha512",
+    "C:\\Users\\111vv\\.nuget\\packages\\system.text.encodings.web\\8.0.0-preview.4.23259.5\\system.text.encodings.web.8.0.0-preview.4.23259.5.nupkg.sha512",
+    "C:\\Users\\111vv\\.nuget\\packages\\system.text.json\\8.0.0-preview.4.23259.5\\system.text.json.8.0.0-preview.4.23259.5.nupkg.sha512"
   ],
   "logs": []
 }
