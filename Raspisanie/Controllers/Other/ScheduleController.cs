@@ -18,6 +18,7 @@ public class ScheduleController : ControllerBase
         _teacherSubject = teacherSubject;
     }
     
+    
     [HttpGet("main/{id}/{day}")]
     public async Task<IActionResult> MainSchedule(long id, int day)
     {
