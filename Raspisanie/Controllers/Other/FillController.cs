@@ -47,6 +47,7 @@ public class FillController : ControllerBase
         _teacherSubject = teacherSubject;
         _date = date;
     }
+    
 
     [HttpGet]
     public async Task<IActionResult> MainFill()
@@ -195,15 +196,18 @@ public class FillController : ControllerBase
     private async Task FillGroupSubjectTime()
     {
         var list =  await _subgroup.GetAll();
-        foreach (var item in list)
+        foreach (var subject in await _subject.GetAll())
         {
-            await _groupSubjectTime.Add(new GroupSubjectTime()
+            foreach (var subgroup in list)
             {
-                PassedTime = 0,
-                TotalTime = new Random().Next(100,200),
-                SubgroupId = item.Id,
-                SubjectId = 17
-            });
+                await _groupSubjectTime.Add(new GroupSubjectTime()
+                {
+                    PassedTime = 0,
+                    TotalTime = new Random().Next(100,200),
+                    SubgroupId = subgroup.Id,
+                    SubjectId = subject.Id
+                });
+            }
         }
     }
     
@@ -271,7 +275,7 @@ public class FillController : ControllerBase
     {
         for (int i = 0; i < 30; i++)
         {
-            _cabinet.Add(new Cabinet()
+            await _cabinet.Add(new Cabinet()
             {
                 Number = i + 1
             });
@@ -284,31 +288,31 @@ public class FillController : ControllerBase
         var cabinets = await _cabinet.GetAll();
         var days = await _day.GetAll();
     
-        _mainSchedule.Add(new MainSchedule()
+        await _mainSchedule.Add(new MainSchedule()
         {
             TeacherSubjectId = teacherSubjects[0].Id,
             CabinetId = cabinets[0].Id,
             DayId = days[0].Id
         });
-        _mainSchedule.Add(new MainSchedule()
+        await _mainSchedule.Add(new MainSchedule()
         {
             TeacherSubjectId = teacherSubjects[0].Id,
             CabinetId = cabinets[0].Id,
             DayId = days[0].Id
         });
-        _mainSchedule.Add(new MainSchedule()
+        await _mainSchedule.Add(new MainSchedule()
         {
             TeacherSubjectId = teacherSubjects[1].Id,
             CabinetId = cabinets[1].Id,
             DayId = days[0].Id
         });
-        _mainSchedule.Add(new MainSchedule()
+        await _mainSchedule.Add(new MainSchedule()
         {
             TeacherSubjectId = teacherSubjects[2].Id,
             CabinetId = cabinets[2].Id,
             DayId = days[0].Id
         });
-        _mainSchedule.Add(new MainSchedule()
+        await _mainSchedule.Add(new MainSchedule()
         {
             TeacherSubjectId = teacherSubjects[3].Id,
             CabinetId = cabinets[3].Id,
@@ -322,13 +326,13 @@ public class FillController : ControllerBase
         var cabinets = await _cabinet.GetAll();
         var dates = await _date.GetAll();
     
-        _mainSchedule.Add(new MainSchedule()
+        await _mainSchedule.Add(new MainSchedule()
         {
             TeacherSubjectId = teacherSubjects[0].Id,
             CabinetId = cabinets[0].Id,
             DayId = dates[0].Id
         });
-        _daySchedule.Add(new DaySchedule()
+        await _daySchedule.Add(new DaySchedule()
         {
             TeacherSubjectId = teacherSubjects[2].Id,
             CabinetId = cabinets[2].Id,
@@ -342,13 +346,13 @@ public class FillController : ControllerBase
         var cabinets = await _cabinet.GetAll();
         var dates = await _date.GetAll();
     
-        _mainSchedule.Add(new MainSchedule()
+        await _mainSchedule.Add(new MainSchedule()
         {
             TeacherSubjectId = teacherSubjects[0].Id,
             CabinetId = cabinets[0].Id,
             DayId = dates[0].Id
         });
-        _daySchedule.Add(new DaySchedule()
+        await _daySchedule.Add(new DaySchedule()
         {
             TeacherSubjectId = teacherSubjects[2].Id,
             CabinetId = cabinets[2].Id,

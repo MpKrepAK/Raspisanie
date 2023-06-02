@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "2xi47z3sP3bABFsUDJ4riClCNsn9lb7Ce374DL9otjw2DqjBmyOVXBr4cERvYUblCsHTzRZlub3HC5bQ1Gcz4w==",
+  "dgSpecHash": "eDd0wZFyhXlsgSp72m9aqrLFi1wRq9R3B106Y3mZAm2P1Zra1MBBFO/tOktEX52s3jTi/3Lv8OO5Lx+EXX1/sQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\111vv\\Downloads\\Telegram Desktop\\Raspisanie\\Raspisanie\\Raspisanie\\Raspisanie.csproj",
+  "projectFilePath": "D:\\Programming\\Projects\\RaspisanieGit\\Raspisanie\\Raspisanie.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\111vv\\.nuget\\packages\\microsoft.aspnetcore.openapi\\7.0.5\\microsoft.aspnetcore.openapi.7.0.5.nupkg.sha512",
     "C:\\Users\\111vv\\.nuget\\packages\\microsoft.entityframeworkcore\\8.0.0-preview.4.23259.3\\microsoft.entityframeworkcore.8.0.0-preview.4.23259.3.nupkg.sha512",

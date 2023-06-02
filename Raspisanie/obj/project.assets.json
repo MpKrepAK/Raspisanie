@@ -1146,11 +1146,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\111vv\\Downloads\\Telegram Desktop\\Raspisanie\\Raspisanie\\Raspisanie\\Raspisanie.csproj",
+      "projectUniqueName": "D:\\Programming\\Projects\\RaspisanieGit\\Raspisanie\\Raspisanie.csproj",
       "projectName": "Raspisanie",
-      "projectPath": "C:\\Users\\111vv\\Downloads\\Telegram Desktop\\Raspisanie\\Raspisanie\\Raspisanie\\Raspisanie.csproj",
+      "projectPath": "D:\\Programming\\Projects\\RaspisanieGit\\Raspisanie\\Raspisanie.csproj",
       "packagesPath": "C:\\Users\\111vv\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\111vv\\Downloads\\Telegram Desktop\\Raspisanie\\Raspisanie\\Raspisanie\\obj\\",
+      "outputPath": "D:\\Programming\\Projects\\RaspisanieGit\\Raspisanie\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\111vv\\AppData\\Roaming\\NuGet\\NuGet.Config"
